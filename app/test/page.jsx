@@ -9,7 +9,7 @@ export default function Page() {
 	const [loading, setLoading] = useState(false);
 
 	const keywords = ["pengertian gaya", "macam-macam gaya", "contoh gaya"];
-	const material = "fisika kelas 7, gaya";
+	const material = "fisika kelas 10 SMA, gaya";
 
 	// on click submit button
 	const handleSubmit = async () => {

@@ -1,13 +1,25 @@
 "use client";
 import addData from "@/lib/material/addData";
+import getData from "@/lib/material/getData";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+	const [materials, setMaterials] = useState([]);
+	useEffect(() => {
+		const fetch = async () => {
+			const data = await getData("materials", 'bkuXx6J3rWWXScQJLDgc');
+			setMaterials(data);
+      console.log(data);
+		};
+		fetch();
+	}, []);
 	const handleForm = async () => {
 		const data = {
 			name: "Pengenalan Gayaaaaa",
 			subject: "fisika",
 			grade: 10,
 			bab: "1",
+			urutan: 1,
 			keywords: [
 				"fisika kelas 10, gaya, pengenalan gaya, pengertian gaya, contoh gaya",
 			],

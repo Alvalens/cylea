@@ -123,32 +123,35 @@ export default function Page() {
 				<button
 					type='submit'
 					onClick={handleSubmit}
-					className='uppercase border-2 border-black rounded-xl py-4 shadow-lg bg-[#BBFF29] w-80'
+					className='uppercase border-2 border-black rounded-xl py-4 shadow-lg shadow-gray-400 bg-[#BBFF29] w-80'
 				>
 					<p className='text-center font-bold'>sederhanakan?</p>
 				</button>
 				<div className='flex space-x-2'>
-					<div className='rounded-lg bg-[#BBFF29] shadow-md w-10 h-10 border-2 border-black'>
+					<button
+						disabled
+						className='rounded-lg bg-[#BBFF29] shadow-md shadow-gray-400 w-10 h-10 border-2 border-black disabled:opacity-30'
+					>
 						<p className='font-semibold text-center'>{"<"}</p>
-					</div>
-					<div className='rounded-lg bg-[#011627] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#011627] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='text-white font-semibold text-center'>1</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>2</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>3</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>4</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>5</p>
-					</div>
-					<div className='rounded-lg bg-[#BBFF29] shadow-md w-10 h-10 border-2 border-black'>
+					</button>
+					<button className='rounded-lg bg-[#BBFF29] shadow-md shadow-gray-400 w-10 h-10 border-2 border-black'>
 						<p className='font-semibold text-center'>{">"}</p>
-					</div>
+					</button>
 				</div>
 			</div>
 		</>

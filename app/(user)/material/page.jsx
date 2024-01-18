@@ -29,14 +29,18 @@ export default function Page() {
 	const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
 	const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-	const keywords = ["pengertian gaya", "macam-macam gaya", "contoh gaya"];
-	const material = "fisika kelas 7, gaya";
+	const keywords = ["apa itu gaya", "macam-macam gaya", "contoh gaya"];
+	const material = "fisika kelas 10, gaya";
+	const subject = "fisika";
+	const bab = "bab 1: gaya";
+	const level = 1;
+
 
 	// on click submit button
 	const handleSubmit = async () => {
 		setLoading(true);
 		try {
-			let response = await regenerateMaterial(keywords, material);
+			let response = await regenerateMaterial(keywords, material, level, subject, bab);
 
 			// Parse the JSON response
 			response = json.parse(response);
@@ -61,9 +65,14 @@ export default function Page() {
 							Gaya
 						</div>
 					</div>
-					<div className="mt-12 text-[#1EA896] text-3xl font-bold">
-						Apa itu gaya?
-					</div>
+					{
+						!response && (
+							<div className="mt-12 text-[#1EA896] text-3xl font-bold">
+								Apa itu gaya?
+							</div>
+						)
+					}
+
 					<div className="mt-4 text-lg ">
 						{loading ? (
 							<p>Loading...</p>
@@ -72,7 +81,12 @@ export default function Page() {
 								{response ? (
 									<>
 										{response.title && (
-											<h1>{response.title}</h1>
+											<h1
+												className="my-12 text-[#1EA896] text-3xl font-bold"
+												dangerouslySetInnerHTML={{
+													__html: response.title,
+												}}
+											/>
 										)}
 										{response.content &&
 											response.content.map(

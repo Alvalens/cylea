@@ -1,3 +1,11 @@
+export const metadata = {
+	title: "CYLEA",
+	description: "Choose Your Learning",
+	icons: {
+		icon: "/logo.png",
+	},
+};
+
 export default function UserLayout({ children }) {
 	return (
 		<>

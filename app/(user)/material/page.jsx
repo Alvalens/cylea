@@ -1,12 +1,33 @@
 "use client";
+
+import {
+	Accordion,
+	AccordionHeader,
+	AccordionBody,
+} from "@material-tailwind/react";
+import Image from "next/image";
 import { regenerateMaterial } from "@/lib/config/gemini";
 import { useEffect, useState } from "react";
 import json from "json5";
 import React from "react";
+import {
+	Circle,
+	CheckCircle2,
+	ChevronLeft,
+	ChevronRight,
+	ChevronDown,
+	ChevronUp,
+} from "lucide-react";
 
 export default function Page() {
 	const [response, setResponse] = useState(null);
 	const [loading, setLoading] = useState(false);
+
+	// accordion
+	const [open, setOpen] = React.useState(0);
+	const [alwaysOpen, setAlwaysOpen] = React.useState(true);
+	const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
+	const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
 	const keywords = ["pengertian gaya", "macam-macam gaya", "contoh gaya"];
 	const material = "fisika kelas 7, gaya";
@@ -40,14 +61,14 @@ export default function Page() {
 							Gaya
 						</div>
 					</div>
-					<div className='mt-12 text-[#1EA896] text-2xl font-bold'>
+					<div className='mt-12 text-[#1EA896] text-3xl font-bold'>
 						Apa itu gaya?
 					</div>
 					<div className='mt-4 text-lg '>
 						{loading ? (
 							<p>Loading...</p>
 						) : (
-							<div>
+							<div className='text-justify text-xl'>
 								{response ? (
 									<>
 										{response.judul && <h1>{response.judul}</h1>}
@@ -73,82 +94,169 @@ export default function Page() {
 										Perubahan kecepatan dapat terjadi dari kondisi benda diam
 										menjadi bergerak, kondisi benda yang mengalami pertambahan
 										kecepatan (berakselerasi), maupun mengalami perlambatan
-										kecepatan. Gaya memiliki besaran (magnitude) dan arah
-										sehingga termasuk dalam besaran vektor. Besaran gaya diukur
-										dalam satuan Newton (N), sedangkan arah gaya ditentukan oleh
-										arah garis gaya. Garis gaya adalah garis yang menunjukkan
-										arah gaya yang bekerja pada suatu benda. Gaya dapat
-										disebabkan oleh berbagai faktor, antara lain: Kontak
-										langsung, yaitu gaya yang bekerja pada suatu benda karena
-										adanya kontak langsung dengan benda lain. Contohnya, gaya
-										gesek, gaya normal, dan gaya tarik-menarik antara dua
-										magnet. Medan, yaitu gaya yang bekerja pada suatu benda
-										karena adanya medan tertentu. Contohnya, gaya
-										gravitasi, gaya elektrostatik, dan gaya magnetik. Gaya
-										memiliki peran penting dalam berbagai fenomena fisika,
-										antara lain: Gerak, yaitu perubahan posisi suatu benda dari
-										satu tempat ke tempat lain. Gaya dapat menyebabkan gerak
-										benda, baik gerak lurus, gerak melingkar, maupun gerak
-										parabola. Kerja, yaitu perpindahan energi yang dihasilkan
-										oleh gaya. Gaya dapat melakukan kerja dengan menggerakkan
-										benda.
-										<div className='my-4'>-image-</div>
-										Energi, yaitu kemampuan untuk melakukan kerja. Gaya dapat
-										mengubah energi benda, misalnya dari energi potensial
-										menjadi energi kinetik. Berikut adalah beberapa contoh gaya
-										dalam kehidupan sehari-hari: Gaya otot, yaitu gaya yang
-										dihasilkan oleh otot manusia atau hewan. Gaya otot digunakan
-										untuk menggerakkan tubuh, misalnya untuk
-										berjalan, berlari, atau mengangkat benda. Gaya
-										gravitasi, yaitu gaya tarik-menarik antara dua benda
-										bermassa. Gaya gravitasi menyebabkan benda-benda jatuh ke
-										bawah. Gaya gesek, yaitu gaya yang berlawanan arah dengan
-										arah gerak benda. Gaya gesek menyebabkan benda sulit
-										bergerak. Gaya magnet, yaitu gaya tarik-menarik atau
-										tolak-menolak antara dua magnet. Gaya magnet menyebabkan
-										magnet dapat menempel pada benda lain. Gaya merupakan konsep
-										penting dalam fisika yang memiliki peran penting dalam
-										berbagai fenomena fisika. Pemahaman tentang gaya akan
-										membantu kita untuk memahami berbagai peristiwa yang terjadi
-										di sekitar kita.
+										kecepatan.
+										<Image
+											className='my-8 mx-auto'
+											src='/dummy_1.png'
+											alt='Cylea Long Logo'
+											width={250}
+											height={0}
+										/>
+										Gaya memiliki besaran (magnitude) dan arah sehingga termasuk
+										dalam besaran vektor. Besaran gaya diukur dalam satuan
+										Newton (N), sedangkan arah gaya ditentukan oleh arah garis
+										gaya. Garis gaya adalah garis yang menunjukkan arah gaya
+										yang bekerja pada suatu benda.
 									</>
 								)}
 							</div>
 						)}
 					</div>
 				</div>
-				<div className='bg-stone-100 rounded-l-3xl w-96'></div>
+
+				{/* sidebar */}
+				<div className='bg-gray-100 rounded-l-3xl w-96 h-auto p-6'>
+					<button className='text-white bg-black rounded-3xl w-12 h-12 inline-flex justify-center items-center mb-4'>
+						<ChevronRight />
+					</button>
+					<Accordion open={alwaysOpen}>
+						<AccordionHeader
+							className='justify-start'
+							onClick={handleAlwaysOpen}
+						>
+							<ChevronUp className='mr-2' />
+							Gaya
+							<div className='ml-auto text-sm'>
+								0%&nbsp;selesai<span className='font-medium ml-1'>1/5</span>
+							</div>
+						</AccordionHeader>
+						<AccordionBody>
+							<div className='flex'>
+								<div className='border border-black w-0 opacity-10' />
+								<div className='flex flex-col gap-4'>
+									<div className='inline-flex items-center font-semibold text-base text-black'>
+										<Circle className='ml-4 mr-2 h-4 w-4 ' /> Apa itu Gaya?
+									</div>
+									<div className='inline-flex items-center font-medium text-base'>
+										<Circle className='ml-4 mr-2 h-4 w-4' /> Penyebab Timbulnya
+										Gaya
+									</div>
+									<div className='inline-flex items-center font-medium text-base'>
+										<Circle className='ml-4 mr-2 h-4 w-4' /> Peran Pentingnya
+										Gaya
+									</div>
+									<div className='inline-flex items-center font-medium text-base'>
+										<Circle className='ml-4 mr-2 h-4 w-4' /> Contoh Gaya di
+										Sekitar Kita
+									</div>
+									<div className='inline-flex items-center font-medium text-base'>
+										<Circle className='ml-4 mr-2 h-4 w-4' /> Uji Kemampuan :
+										Gaya
+									</div>
+								</div>
+							</div>
+						</AccordionBody>
+					</Accordion>
+					<Accordion open={open === 1}>
+						<AccordionHeader
+							className='justify-start'
+							onClick={() => handleOpen(1)}
+						>
+							<ChevronDown
+								className={`${
+									1 === open ? "-rotate-180" : ""
+								} h-5 w-5 transition-transform mr-2`}
+							/>
+							Usaha
+						</AccordionHeader>
+						<AccordionBody>
+							<div className='border border-black h-12 w-0 opacity-10' />
+						</AccordionBody>
+					</Accordion>
+					<Accordion open={open === 2}>
+						<AccordionHeader
+							className='justify-start'
+							onClick={() => handleOpen(2)}
+						>
+							<ChevronDown
+								className={`${
+									2 === open ? "-rotate-180" : ""
+								} h-5 w-5 transition-transform mr-2`}
+							/>
+							Energi
+						</AccordionHeader>
+						<AccordionBody>
+							<div className='border border-black h-12 w-0 opacity-10' />
+						</AccordionBody>
+					</Accordion>
+					<Accordion open={open === 3}>
+						<AccordionHeader
+							className='justify-start'
+							onClick={() => handleOpen(3)}
+						>
+							<ChevronDown
+								className={`${
+									3 === open ? "-rotate-180" : ""
+								} h-5 w-5 transition-transform mr-2`}
+							/>
+							Kekekalan Energi
+						</AccordionHeader>
+						<AccordionBody>
+							<div className='border border-black h-12 w-0 opacity-10' />
+						</AccordionBody>
+					</Accordion>
+					<Accordion open={open === 4}>
+						<AccordionHeader
+							className='justify-start'
+							onClick={() => handleOpen(4)}
+						>
+							<ChevronDown
+								className={`${
+									4 === open ? "-rotate-180" : ""
+								} h-5 w-5 transition-transform mr-2`}
+							/>
+							Termodinamika
+						</AccordionHeader>
+						<AccordionBody>
+							<div className='border border-black h-12 w-0 opacity-10' />
+						</AccordionBody>
+					</Accordion>
+				</div>
 			</div>
-			<div className='mt-12 mx-auto space-y-4 max-w-80'>
+
+			<div className='mt-16 mx-auto space-y-4 max-w-80'>
 				<button
 					type='submit'
 					onClick={handleSubmit}
-					className='uppercase border-2 border-black rounded-xl py-4 shadow-lg bg-[#BBFF29] w-80'
+					className='uppercase border-2 border-black rounded-xl py-4 shadow-lg shadow-gray-400 bg-[#BBFF29] w-80'
 				>
 					<p className='text-center font-bold'>sederhanakan?</p>
 				</button>
 				<div className='flex space-x-2'>
-					<div className='rounded-lg bg-[#BBFF29] shadow-md w-10 h-10 border-2 border-black'>
-						<p className='font-semibold text-center'>{"<"}</p>
-					</div>
-					<div className='rounded-lg bg-[#011627] shadow-md w-10 h-10'>
+					<button
+						disabled
+						className='inline-flex justify-center items-center rounded-lg bg-[#BBFF29] shadow-md shadow-gray-400 w-10 h-10 border-2 border-black disabled:opacity-30'
+					>
+						<ChevronLeft />
+					</button>
+					<button className='rounded-lg bg-[#011627] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='text-white font-semibold text-center'>1</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>2</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>3</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>4</p>
-					</div>
-					<div className='rounded-lg bg-[#DED6D6] shadow-md w-10 h-10'>
+					</button>
+					<button className='rounded-lg bg-[#DED6D6] shadow-md shadow-gray-400 w-10 h-10'>
 						<p className='font-semibold text-center'>5</p>
-					</div>
-					<div className='rounded-lg bg-[#BBFF29] shadow-md w-10 h-10 border-2 border-black'>
-						<p className='font-semibold text-center'>{">"}</p>
-					</div>
+					</button>
+					<button className='inline-flex justify-center items-center rounded-lg bg-[#BBFF29] shadow-md shadow-gray-400 w-10 h-10 border-2 border-black'>
+						<ChevronRight />
+					</button>
 				</div>
 			</div>
 		</>

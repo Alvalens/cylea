@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth } from "@/lib/auth/authContext";
-import { signOutWithGoogle, onAuthChange } from "@/lib/auth/auth";
+import { signOutWithGoogle } from "@/lib/auth/auth";
 import { useEffect } from "react";
 import { LogOut } from "lucide-react";
 
@@ -11,10 +11,6 @@ export default function SignIn() {
 	const handleSignOut = async () => {
 		await signOutWithGoogle();
 	};
-
-	onAuthChange((authUser) => {
-		console.log(authUser);
-	});
 
 	useEffect(() => {
 		console.log(user);

@@ -1,21 +1,17 @@
 "use client";
 
 import { useAuth } from "@/lib/auth/authContext";
-import { signInWithGoogle, onAuthChange } from "@/lib/auth/auth";
+import { signInWithGoogle } from "@/lib/auth/auth";
 import { useEffect } from "react";
 import GoogleIcons from "@/components/GoogleIcons";
 
 export default function SignIn() {
-	const { user, setUser } = useAuth(); // Destructure setUser from useAuth
+	const { user } = useAuth(); // Destructure setUser from useAuth
 
 	const handleSignIn = async () => {
-		const authUser = await signInWithGoogle();
-		setUser(authUser); // Set the user in the context
+		await signInWithGoogle();
 	};
 
-	onAuthChange((authUser) => {
-		console.log(authUser);
-	});
 
 	useEffect(() => {
 		console.log(user);

@@ -15,7 +15,7 @@ export default function Page() {
 	const handleSubmit = async () => {
 		setLoading(true);
 		try {
-			let response = await regenerateMaterial(keywords, material);
+			let response = await regenerateMaterial(keywords, material, 2);
 
 			// Parse the JSON response
 			response = json.parse(response);

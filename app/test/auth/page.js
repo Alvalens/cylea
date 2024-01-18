@@ -8,20 +8,16 @@ import {
 import { useEffect } from "react";
 
 export default function Home() {
-	const { user, setUser } = useAuth(); // Destructure setUser from useAuth
+	const { user } = useAuth(); // Destructure setUser from useAuth
 
 	const handleSignIn = async () => {
-		const authUser = await signInWithGoogle();
-		setUser(authUser); // Set the user in the context
+		await signInWithGoogle();
 	};
 
 	const handleSignOut = async () => {
 		await signOutWithGoogle();
 	};
 
-	onAuthChange((authUser) => {
-		console.log(authUser);
-	});
 
 	useEffect(() => {
 		console.log(user);

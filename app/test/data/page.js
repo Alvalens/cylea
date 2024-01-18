@@ -1,9 +1,11 @@
 "use client";
+import { useAuth } from "@/lib/auth/authContext";
 import addData from "@/lib/material/addData";
 import getData from "@/lib/material/getData";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+	const user = useAuth();
 	const [materials, setMaterials] = useState([]);
 	useEffect(() => {
 		const fetch = async () => {
@@ -13,6 +15,12 @@ export default function Home() {
 		};
 		fetch();
 	}, []);
+
+		useEffect(() => {
+			console.log(user);
+		}, [user]);
+
+
 	const handleForm = async () => {
 		const data = {
 			name: "Pengenalan Gayaaaaa",

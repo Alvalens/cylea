@@ -57,10 +57,10 @@ Welcome to our cutting-edge Learning Platform, where learning is not just a jour
 
 ## Contributor
 
-1. Alvalen Shafelbilyunazra as **Hacker**
-2. Ardha Ardhana Putra Agustavada as **Hacker**
-3. Azarya Aditya Krisna Moeljono as **Hustler**
-4. Burhanudin Yusuf Abdullah Ar Ramadhan as **Hipster**
+1. Alvalen Shafelbilyunazra as ***Hacker***
+2. Ardha Ardhana Putra Agustavada as ***Hacker***
+3. Azarya Aditya Krisna Moeljono as ***Hustler***
+4. Burhanudin Yusuf Abdullah Ar Ramadhan as ***Hipster***
 
 **Team Name:** Cytane *(Chose Your Team Name)*
 

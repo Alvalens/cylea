@@ -75,7 +75,7 @@ export default function Page() {
 											<h1>{response.title}</h1>
 										)}
 										{response.content &&
-											response.materi.map(
+											response.content.map(
 												(item, index) => (
 													<p
 														key={index}

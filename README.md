@@ -50,8 +50,10 @@ Welcome to our cutting-edge Learning Platform, where learning is not just a jour
    pnpm next dev
    ```
 
-   **Access the Platform:**
+7. Access the Platform:
+   ```shell
    Open your browser and navigate to `http://localhost:3000`.Start the development serve
+    ```
 
 ## Contributor
 

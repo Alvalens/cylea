@@ -49,11 +49,11 @@ Welcome to our cutting-edge Learning Platform, where learning is not just a jour
    ```javascript
    pnpm next dev
    ```
+7. Access the Platform, Open your browser and navigate to
 
-7. Access the Platform:
    ```shell
-   Open your browser and navigate to `http://localhost:3000`.Start the development serve
-    ```
+   http://localhost:3000
+   ```
 
 ## Contributor
 

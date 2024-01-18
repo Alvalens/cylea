@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import SignIn from "@/components/auth/SignIn";
 import SignOut from "@/components/auth/SignOut";
+import { useAuth } from "@/lib/auth/authContext";
 
 export default function Navbar({ className }) {
+	const { user } = useAuth();
 	const NavLinks = [
 		{
 			title: "Beranda",
@@ -41,10 +45,10 @@ export default function Navbar({ className }) {
 							</Link>
 						))}
 						<button className='uppercase inline-flex justify-center items-center border-2 border-[#011627] rounded-xl bg-[#baff29] text-[#011627] font-semibold h-10 text-sm px-4 shadow-md'>
-							langganan
+							<Link href='/subject'>langganan</Link>
 						</button>
-						<SignIn />
-						{/* <SignOut /> */}
+						{user ? <SignOut /> : <SignIn />}
+						<div></div>
 					</div>
 				</div>
 			</div>

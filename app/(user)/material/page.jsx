@@ -29,9 +29,9 @@ export default function Page() {
 	const handleAlwaysOpen = () => setAlwaysOpen((cur) => !cur);
 	const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-	const keywords = ["apa itu gaya", "macam-macam gaya", "contoh gaya"];
-	const material = "fisika kelas 10, gaya";
-	const subject = "fisika";
+	const keywords = ["pengertian gaya","apa itu gaya", "macam-macam gaya", "contoh gaya"];
+	const material = "apa itu gaya";
+	const subject = "fisika kelas 10";
 	const bab = "bab 1: gaya";
 	const level = 1;
 
@@ -41,9 +41,6 @@ export default function Page() {
 		setLoading(true);
 		try {
 			let response = await regenerateMaterial(keywords, material, level, subject, bab);
-
-			// Parse the JSON response
-			response = json.parse(response);
 
 			setResponse(response);
 		} catch (error) {

@@ -18,6 +18,7 @@ import {
 	ChevronDown,
 	ChevronUp,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Page() {
 	const [response, setResponse] = useState(null);

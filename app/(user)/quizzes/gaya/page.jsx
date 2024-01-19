@@ -14,6 +14,7 @@ import {
 	ChevronUp,
 } from "lucide-react";
 import React from "react";
+import Link from "next/link";
 
 export default function Page() {
 	// accordion
@@ -34,137 +35,9 @@ export default function Page() {
 					<div className='mt-12 text-[#1EA896] text-3xl font-bold mb-6'>
 						Uji Kemampuan : Gaya
 					</div>
-					<div className='text-xl font-bold uppercase mb-2'>
-						soal fisika : gaya
-					</div>
-					<div className='flex w-max gap-3'>
-						<Button className=' bg-[#1EA896] shadow-md text-lg font-bold'>
-							1
-						</Button>
-						<Button className=' bg-[#ded6d6] shadow-md text-lg font-bold text-black'>
-							2
-						</Button>
-						<Button className=' bg-[#ded6d6] shadow-md text-lg font-bold text-black'>
-							3
-						</Button>
-						<Button className=' bg-[#ded6d6] shadow-md text-lg font-bold text-black'>
-							4
-						</Button>
-						<Button className=' bg-[#ded6d6] shadow-md text-lg font-bold text-black'>
-							5
-						</Button>
-					</div>
-
-					<hr className='border my-8' />
-
-					{/* QUIZ */}
-					<div className='text-xl font-bold'>1. Gaya adalah...</div>
-					<div className='mt-4 space-y-4'>
-						<div className='flex items-center'>
-							<input
-								type='radio'
-								name='option'
-								id='a'
-								value='a'
-								className='peer hidden'
-							/>
-							<label
-								for='a'
-								className='inline-flex items-center justify-center w-14 h-12 bg-[#ded6d6] font-bold cursor-pointer select-none rounded-lg p-2 peer-checked:bg-[#011627] peer-checked:font-bold peer-checked:text-white'
-							>
-								A
-							</label>
-							<label for='a' className='ml-4 font-bold text-lg cursor-pointer'>
-								Ketahanan suatu benda terhadap perubahan geraknya
-							</label>
-						</div>
-
-						<div className='flex items-center'>
-							<input
-								type='radio'
-								name='option'
-								id='b'
-								value='b'
-								className='peer hidden'
-							/>
-							<label
-								for='b'
-								className='inline-flex items-center justify-center w-14 h-12 bg-[#ded6d6] font-bold cursor-pointer select-none rounded-lg p-2 peer-checked:bg-[#011627] peer-checked:font-bold peer-checked:text-white'
-							>
-								B
-							</label>
-							<label for='b' className='ml-4 font-bold text-lg cursor-pointer'>
-								Kecepatan suatu objek
-							</label>
-						</div>
-
-						<div className='flex items-center'>
-							<input
-								type='radio'
-								name='option'
-								id='c'
-								value='c'
-								className='peer hidden'
-							/>
-							<label
-								for='c'
-								className='inline-flex items-center justify-center w-14 h-12 bg-[#ded6d6] font-bold cursor-pointer select-none rounded-lg p-2 peer-checked:bg-[#011627] peer-checked:font-bold peer-checked:text-white'
-							>
-								C
-							</label>
-							<label for='c' className='ml-4 font-bold text-lg cursor-pointer'>
-								Pengaruh yang dapat menyebabkan perubahan gerak benda
-							</label>
-						</div>
-
-						<div className='flex items-center'>
-							<input
-								type='radio'
-								name='option'
-								id='d'
-								value='d'
-								className='peer hidden'
-							/>
-							<label
-								for='d'
-								className='inline-flex items-center justify-center w-14 h-12 bg-[#ded6d6] font-bold cursor-pointer select-none rounded-lg p-2 peer-checked:bg-[#011627] peer-checked:font-bold peer-checked:text-white'
-							>
-								D
-							</label>
-							<label for='d' className='ml-4 font-bold text-lg cursor-pointer'>
-								Perpindahan suatu objek
-							</label>
-						</div>
-
-						<div className='flex items-center'>
-							<input
-								type='radio'
-								name='option'
-								id='e'
-								value='e'
-								className='peer hidden'
-							/>
-							<label
-								for='e'
-								className='inline-flex items-center justify-center w-14 h-12 bg-[#ded6d6] font-bold cursor-pointer select-none rounded-lg p-2 peer-checked:bg-[#011627] peer-checked:font-bold peer-checked:text-white'
-							>
-								E
-							</label>
-							<label for='e' className='ml-4 font-bold text-lg cursor-pointer'>
-								Usaha untuk melakukan sesuatu
-							</label>
-						</div>
-					</div>
-
-					{/* navigation */}
-					<div className='flex mt-20 justify-between uppercase'>
-						<Button disabled className='rounded-xl h-12 w-40 font-bold'>
-							sebelumnya
-						</Button>
-						<Button className='rounded-xl h-12 w-40 font-bold border-2 border-black bg-[#baff29] text-black'>
-							selanjutnya
-						</Button>
-					</div>
+					<Button className='rounded-xl h-12 w-40 font-bold border-2 border-black bg-[#baff29] text-black'>
+						<Link href={`gaya/fisika-gaya=quiz`}>Mulai Quizz</Link>
+					</Button>
 				</div>
 
 				{/* sidebar */}
